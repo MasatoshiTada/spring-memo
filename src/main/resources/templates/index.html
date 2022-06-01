@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>メモ一覧</title>
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
+</head>
+<body>
+    <form method="post" action="index.html" th:action="@{/add}">
+        <input name="content">
+        <input type="submit" value="登録">
+    </form>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>メモ内容</th>
+                <th>作成日時</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="memo : ${memoList}" th:object="${memo}">
+                <td th:text="*{id}">1</td>
+                <td th:text="*{content}">ダミーのメモ1</td>
+                <td th:text="*{#temporals.format(createdAt, 'yyyy年M月d日 H時m分s秒')}">2022年1月1日 10時10分10秒</td>
+            </tr>
+            <!--/*-->
+            <tr>
+                <td>2</td>
+                <td>ダミーのメモ2</td>
+                <td>2022年1月1日 10時10分10秒</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>ダミーのメモ3</td>
+                <td>2022年1月1日 10時10分10秒</td>
+            </tr>
+            <!--*/-->
+        </tbody>
+    </table>
+</body>
+</html>

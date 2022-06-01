@@ -1,0 +1,9 @@
+th {
+    background-color: green;
+    color: white;
+    border: thin solid black;
+}
+
+td {
+    border: thin solid black;
+}
